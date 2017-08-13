@@ -1,0 +1,22 @@
+debug: true
+
+spring:
+  aop:
+    proxy-target-class: true
+
+
+security:
+  user:
+    password: none
+  oauth2:
+    client:
+      accessTokenUri: http://localhost:8090/oauth/token
+      userAuthorizationUri: http://localhost:8090/oauth/authorize
+      clientId: toolvault
+      clientSecret: toolvaultsecret
+    resource:
+      jwt:
+        keyValue: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo7KY8GY7nWQP102/c1C3cew8mlub4hRTOxn/2G2SoGAxgFzCUow5LhHgBFK43/hHEwDYU9+o92mbyToglyJs6vkmIMjZkoMPYzKVTPtm3m1fWA0u2cN5uXMFkJu8WdR0HMfqKoDMXI4UgpCdEEco/Ws2/14MaZX0V//a/Vwdu69QhfFO6qC025MOw0qef5PS6t0yHRPotXmXwmezRVBOhZ40o/t481pq8uKqb29pr/YdZKE8vZXyBJejKM5vIun9wQHf91dXdmMqVDu6mQhNzeJZv2JrHic0g8Dmvlh9O2tZQvyy3dSJVtwjhqd6F9rPHnBNew58tfY5oAAgsjSiJQIDAQAB
+          -----END PUBLIC KEY-----
