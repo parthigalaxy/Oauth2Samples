@@ -8,7 +8,6 @@ angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider, $httpProv
 
 	$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 	$httpProvider.defaults.headers.common['Accept'] = 'application/json';
-	$httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = 'http://localhost:8090/';
 
 }).controller('navigation',
 
@@ -20,7 +19,7 @@ function($rootScope, $http, $location, $route) {
 		return $route.current && route === $route.current.controller;
 	};
 
-	$http.get('/user').then(function(response) {
+	$http.get('user').then(function(response) {
 		if (response.data.name) {
 			$rootScope.authenticated = true;
 		} else {
@@ -41,9 +40,7 @@ function($rootScope, $http, $location, $route) {
 
 }).controller('home', function($http) {
 	var self = this;
-	$http.get('/resource').then(function(response) {
+	$http.get('resource/').then(function(response) {
 		self.greeting = response.data;
 	})
-}).config(['$qProvider', function ($qProvider) {
-    $qProvider.errorOnUnhandledRejections(false);
-}]);;
+});
